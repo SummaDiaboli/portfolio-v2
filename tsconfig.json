@@ -1,5 +1,5 @@
 {
-  "extends": "astro/tsconfigs/strict",
+  "extends": "astro/tsconfigs/base",
   "include": [".astro/types.d.ts", "**/*"],
 "exclude": [
     "dist"
@@ -8,6 +8,20 @@
     "types": [
         "./worker-configuration.d.ts",
         "node"
-    ]
-}
+    ],
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      },
+    ],
+     "verbatimModuleSyntax": true,
+     "baseUrl": ".",
+     "paths": {
+         "@components/*": ["src/components/*"],
+         "@layouts/*": ["src/layouts/*"],
+         "@styles/*": ["src/styles/*"],
+         "@assets/*": ["src/assets/*"],
+         "@utils/*": ["src/utils/*"]
+     }
+    },
 }

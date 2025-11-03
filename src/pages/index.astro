@@ -1,11 +1,322 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "@layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { profileData } from "@utils/profileData";
+import { format } from "date-fns";
+import { Icon } from "astro-icon/components";
+import Card from "@components/Card.astro";
+
+const { education, interests, personalDetails, resume, skills } = profileData;
 ---
 
 <Layout>
-	<Welcome />
+  <main class="grid grid-cols-2 mx-20 justify-items-center">
+    <!-- Details and Nav -->
+    <div class="relative">
+      <div class="sticky top-0 flex flex-col gap-10 h-2/3 justify-around">
+        <section>
+          <h1
+            class="text-5xl tracking-tight lg:text-6xl font-bold mb-4 text-slate-200"
+          >
+            Salim Hussaini
+          </h1>
+          <p
+            class="tracking-tight lg:text-3xl font-semibold mb-6 text-slate-200"
+          >
+            Fullstack Software Engineer
+          </p>
+          <p class="w-[75%] text-slate-400">
+            I build accessible, inclusive products and digital experiences for
+            the web.
+          </p>
+        </section>
+
+        <section>
+          <nav class="uppercase flex flex-col gap-y-2">
+            <a
+              href="#about"
+              class="flex flex-row items-center gap-x-3 navlink w-fit group transition duration-500"
+            >
+              <div
+                class="bg-white h-0.5 w-7 group-hover:w-14 transition-all duration-500"
+              >
+              </div>
+              <p
+                class="text-sm leading-tight tracking-widest font-bold opacity-50 group-hover:opacity-100"
+              >
+                About
+              </p>
+            </a>
+
+            <a
+              href="#experience"
+              class="flex flex-row items-center gap-x-3 navlink w-fit group transition duration-500"
+            >
+              <div
+                class="bg-white h-0.5 w-7 group-hover:w-14 transition-all duration-500"
+              >
+              </div>
+              <p
+                class="text-sm leading-tight tracking-widest font-bold opacity-50 group-hover:opacity-100 data-active"
+              >
+                Experience
+              </p>
+            </a>
+          </nav>
+        </section>
+
+        <section class="flex flex-row gap-5">
+          <a
+            href={personalDetails.githubLink}
+            target="_blank"
+            class="opacity-80 text-3xl"
+          >
+            <Icon name="fontisto:github" />
+          </a>
+          <a
+            href={personalDetails.linkedInLink}
+            target="_blank"
+            class="opacity-80 text-3xl"
+          >
+            <Icon name="fontisto:linkedin" />
+          </a>
+        </section>
+      </div>
+    </div>
+
+    <div class="my-32">
+      <!-- About section -->
+      <section id="about" class="text-slate-400">
+        <p>
+          From tinkering with my dad's desktop PC as a kid to building software
+          for NGOs, home automation, a national organization, and high-profile
+          startups, I've had a blast exploring the digital world. My journey has
+          been fueled by a lifelong curiosity and a passion for creating
+          innovative solutions.
+        </p>
+
+        <p>
+          Currently, I'm a Senior Frontend Developer at NEXT BASKET, crafting
+          top-notch e-commerce solutions. When I'm not immersed in work, I
+          explore new tech trends and build side projects. This portfolio, for
+          instance, was built using Astro.
+        </p>
+      </section>
+
+      <section id="experience" class="scroll-mt-28">
+        <div
+          class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900 75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
+        >
+          <h2
+            class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only"
+          >
+            Experience
+          </h2>
+        </div>
+
+        <ul class="flex flex-col gap-y-5 lg:gap-y-10 group/cards -m-5">
+          {profileData.resume.map((data) => <Card {...data} />)}
+        </ul>
+
+        <a
+          class="text-slate-200 flex flex-row gap-x-1 items-center group mt-6"
+          href="/Resume - Salim Hussaini.pdf"
+          download
+        >
+          <div
+            class="group-hover:underline group-hover:decoration-green-400 group-hover:underline-offset-4"
+          >
+            View Full Resume
+          </div>
+
+          <!-- <MyPDF client:only="react" /> -->
+
+          <svg
+            class="group-hover:translate-x-2 transition-all"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="24"
+            viewBox="0 0 16 9"
+            ><path
+              fill="currentColor"
+              d="M12.5 5h-9c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h9c.28 0 .5.22.5.5s-.22.5-.5.5Z"
+            ></path><path
+              fill="currentColor"
+              d="M10 8.5a.47.47 0 0 1-.35-.15c-.2-.2-.2-.51 0-.71l3.15-3.15l-3.15-3.15c-.2-.2-.2-.51 0-.71c.2-.2.51-.2.71 0l3.5 3.5c.2.2.2.51 0 .71l-3.5 3.5c-.1.1-.23.15-.35.15Z"
+            ></path></svg
+          >
+        </a>
+      </section>
+
+      <!-- Experience section -->
+      <section id="experience" class="my-20">
+        <ul class="space-y-5">
+          {
+            resume.map((item) => (
+              <li>
+                <p>{item.company}</p>
+
+                <p>{item.role}</p>
+
+                <p>
+                  {`${format(item.duration.from, "MMM y")} -
+                  ${
+                    typeof item.duration.to === "string"
+                      ? item.duration.to
+                      : format(item.duration.to, "MMM y")
+                  }`}
+                </p>
+
+                <p>{item.description}</p>
+
+                <ul class="flex flex-row flex-wrap gap-x-2">
+                  {item.languages.map((language) => (
+                    <p class="bg-green-400/20 text-green-300 text-xs rounded-full px-2 py-1">
+                      {language}
+                    </p>
+                  ))}
+                </ul>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <!-- Footer -->
+      <section>Redesigning and updating data</section>
+    </div>
+  </main>
 </Layout>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+
+  const aboutDiv = `.navlink[href="#about"] > div`;
+  const aboutP = `.navlink[href="#about"] > p`;
+  const expDiv = `.navlink[href="#experience"] > div`;
+  const expP = `.navlink[href="#experience"] > p`;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.location.href.includes("#")) {
+      let anchor = `#${window.location.href.split("#")[1]}`;
+
+      gsap.fromTo(
+        window,
+        { scrollTo: { y: 0 } },
+        { duration: 0.5, scrollTo: { y: anchor, offsetY: 50 } }
+      );
+
+      if (aboutDiv.includes(anchor)) {
+        gsap.to(aboutDiv, {
+          onStart: () => {
+            document.querySelector(aboutDiv).classList.replace("w-7", "w-14");
+            document
+              .querySelector(aboutP)
+              .classList.replace("opacity-50", "opacity-100");
+          },
+        });
+      }
+      // gsap.fromTo(
+      //   `.navlink[href="${anchor}"]`,
+      //   { opacity: 0.5 },
+      //   { opacity: 1 }
+      // );
+    } else {
+      gsap.to(aboutDiv, {
+        onStart: () => {
+          document.querySelector(aboutDiv).classList.replace("w-7", "w-14");
+          document
+            .querySelector(aboutP)
+            .classList.replace("opacity-50", "opacity-100");
+        },
+      });
+    }
+  });
+
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>(".navlink");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      let anchor = `#${link.href.split("#")[1]}`;
+      history.pushState(null, "", anchor);
+      gsap.to(window, {
+        duration: 0.5,
+        scrollTo: { y: anchor, offsetY: 50 },
+      });
+    });
+  });
+
+  ScrollTrigger.create({
+    trigger: "#about",
+    start: "bottom center",
+    onLeave: () => {
+      // gsap.fromTo(`.navlink[href="#about"]`, { opacity: 1 }, { opacity: 0.5 });
+      gsap.to(aboutDiv, {
+        // duration: 0.5,
+        onStart: () => {
+          document.querySelector(aboutDiv).classList.replace("w-14", "w-7");
+          document
+            .querySelector(aboutP)
+            .classList.replace("opacity-100", "opacity-50");
+        },
+      });
+      // gsap.fromTo(
+      //   `.navlink[href="#about"] > div`,
+      //   { width: "3rem", duration: 0.5 },
+      //   { width: "1.5rem", duration: 0.5 }
+      // );
+      // gsap.fromTo(
+      //   `.navlink[href="#experience"]`,
+      //   { opacity: 0.5 },
+      //   { opacity: 1 }
+      // );
+      gsap.to(expDiv, {
+        onStart: () => {
+          document.querySelector(expDiv).classList.replace("w-7", "w-14");
+
+          document
+            .querySelector(expP)
+            .classList.replace("opacity-50", "opacity-100");
+        },
+      });
+      // gsap.fromTo(
+      //   `.navlink[href="#experience"] > div`,
+      //   { width: "1.5rem", duration: 0.5 },
+      //   { width: "3rem", duration: 0.5 }
+      // );
+    },
+    onEnterBack: () => {
+      gsap.to(expDiv, {
+        onStart: () => {
+          document.querySelector(expDiv).classList.replace("w-14", "w-7");
+          document
+            .querySelector(expP)
+            .classList.replace("opacity-100", "opacity-50");
+        },
+      });
+
+      gsap.to(aboutDiv, {
+        onStart: () => {
+          document.querySelector(aboutDiv).classList.replace("w-7", "w-14");
+          document
+            .querySelector(aboutP)
+            .classList.replace("opacity-50", "opacity-100");
+        },
+      });
+      // gsap.fromTo(
+      //   `.navlink[href="#experience"]`,
+      //   { opacity: 1 },
+      //   { opacity: 0.5 }
+      // );
+      // gsap.fromTo(
+      //   `.navlink[href="#experience"] > div`,
+      //   { width: "3rem", duration: 0.5 },
+      //   { width: "1.5rem", duration: 0.5 }
+      // );
+    },
+  });
+</script>
