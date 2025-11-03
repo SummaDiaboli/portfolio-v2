@@ -241,7 +241,7 @@ const { education, interests, personalDetails, resume, skills } = profileData;
       let anchor = `#${link.href.split("#")[1]}`;
       history.pushState(null, "", anchor);
       gsap.to(window, {
-        duration: 0.5,
+        // duration: 0.1,
         scrollTo: { y: anchor, offsetY: 50 },
       });
     });
