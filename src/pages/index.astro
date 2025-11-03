@@ -45,7 +45,7 @@ const { education, interests, personalDetails, resume, skills } = profileData;
                 >
                 </div>
                 <p
-                  class="text-sm leading-tight tracking-widest font-bold text-slate-400 group-hover:text-slate-200"
+                  class="text-xs leading-tight tracking-widest font-bold text-slate-400 group-hover:text-slate-200"
                 >
                   About
                 </p>
@@ -60,7 +60,7 @@ const { education, interests, personalDetails, resume, skills } = profileData;
                 >
                 </div>
                 <p
-                  class="text-sm leading-tight tracking-widest font-bold text-slate-400 group-hover:text-slate-200 data-active"
+                  class="text-xs leading-tight tracking-widest font-bold text-slate-400 group-hover:text-slate-200 data-active"
                 >
                   Experience
                 </p>
@@ -237,11 +237,11 @@ const { education, interests, personalDetails, resume, skills } = profileData;
   const navLinks = document.querySelectorAll<HTMLAnchorElement>(".navlink");
   navLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
-      e.preventDefault();
+      // e.preventDefault();
       let anchor = `#${link.href.split("#")[1]}`;
       history.pushState(null, "", anchor);
       gsap.to(window, {
-        // duration: 0.1,
+        duration: 0.1,
         scrollTo: { y: anchor, offsetY: 50 },
       });
     });
