@@ -1,79 +1,79 @@
 ---
-import Icon from "astro-icon"
+import Icon from "astro-icon";
 
-import { format } from "date-fns"
+import { format } from "date-fns";
 
 interface Props {
-    role: string
-    company: string
-    duration: {
-        from: Date
-        to: Date | string
-    }
-    link?: string
-    description: string
-    languages: string[]
+  role: string;
+  company: string;
+  duration: {
+    from: Date;
+    to: Date | string;
+  };
+  link?: string;
+  description: string;
+  languages: string[];
 }
 
-const { company, description, duration, languages, role, link } = Astro.props
+const { company, description, duration, languages, role, link } = Astro.props;
 
 const formatDate = (value: Date | string) => {
-    if (typeof value === "string") {
-        return value
-    } else {
-        return format(value, "MMM yyy")
-    }
-}
+  if (typeof value === "string") {
+    return value;
+  } else {
+    return format(value, "MMM yyy");
+  }
+};
 ---
 
 <a href={link} class="cursor-pointer px-5" target="_blank" rel="no-referrer">
-    <li
-        class="flex flex-col lg:flex-row gap-x-3 gap-y-2 transition-all rounded-sm group/item lg:hover:bg-gray-400/10 lg:hover:shadow-md lg:px-3 py-5 lg:group-hover/cards:[&:not(:hover)]:opacity-50"
-    >
-        <p class="min-w-[13rem] text-sm">
-            {formatDate(duration.from)} - {formatDate(duration.to)}
-        </p>
+  <li
+    class="flex flex-col lg:flex-row gap-x-3 gap-y-2 transition-all rounded-sm group/item lg:hover:bg-gray-400/10 lg:hover:shadow-md lg:px-3 py-5 lg:group-hover/cards:not-[&:hover]:opacity-50"
+  >
+    <p class="min-w-52 text-sm">
+      {formatDate(duration.from)} - {formatDate(duration.to)}
+    </p>
 
-        <div class="flex flex-col space-y-5">
-            <p
-                class="text-md font-medium lg:font-semibold text-slate-200 hover:text-slate-300 group-hover/item:text-green-400 flex lg:flex-row items-baseline"
-            >
-                <>
-                    {role} &centerdot; {company}
-                    {
-                        link && (
-                            <svg
-                                class="h-3 transition-all group-hover/item:translate-x-1 group-hover/item:-translate-y-1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2.5"
-                                    d="M6 19L19 6m0 0v12.48M19 6H6.52"
-                                />
-                            </svg>
-                        )
-                    }
-                </>
-            </p>
-            <p class="text-white/70 text-sm">{description}</p>
-            <ul class="flex flex-row gap-2 flex-wrap">
-                {
-                    languages.map((language) => (
-                        <li class="bg-green-400/20 text-green-300 text-xs rounded-full px-2 py-1">
-                            {language}
-                        </li>
-                    ))
-                }
-            </ul>
-        </div>
-        <!-- <a href={href}>
+    <div class="flex flex-col space-y-5">
+      <p
+        class="text-md font-medium lg:font-semibold text-slate-200 hover:text-slate-300 group-hover/item:text-green-400 flex lg:flex-row items-baseline"
+      >
+        <>
+          {role} &centerdot; {company}
+          {
+            link && (
+              <svg
+                class="h-3 transition-all group-hover/item:translate-x-1 group-hover/item:-translate-y-1"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M6 19L19 6m0 0v12.48M19 6H6.52"
+                />
+              </svg>
+            )
+          }
+        </>
+      </p>
+      <p class="text-white/70 text-sm">{description}</p>
+      <ul class="flex flex-row gap-2 flex-wrap">
+        {
+          languages.map((language) => (
+            <li class="bg-green-400/20 text-green-300 text-xs rounded-full px-2 py-1">
+              {language}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <!-- <a href={href}>
         <h2>
             {title}
             <span>&rarr;</span>
@@ -82,5 +82,5 @@ const formatDate = (value: Date | string) => {
             {body}
         </p>
     </a> -->
-    </li>
+  </li>
 </a>
