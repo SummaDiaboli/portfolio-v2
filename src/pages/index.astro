@@ -29,8 +29,7 @@ const { education, interests, personalDetails, resume, skills } = profileData;
             </p>
 
             <p class="w-[75%]">
-              I build accessible, inclusive products and digital experiences for
-              the web.
+              {personalDetails.brief}
             </p>
           </div>
 
@@ -112,7 +111,7 @@ const { education, interests, personalDetails, resume, skills } = profileData;
           </h2>
         </div>
 
-        <p>
+        <!-- <p>
           From tinkering with my dad's desktop PC as a kid to building software
           for <ProfileBriefLink url="https://yiaga.org/" text="NGOs" />,
           <ProfileBriefLink url="https://314ltd.com/" text="home automation" />,
@@ -135,6 +134,57 @@ const { education, interests, personalDetails, resume, skills } = profileData;
           work, I explore new tech trends and build side projects. This
           portfolio, for instance, was built using
           <ProfileBriefLink url="https://astro.build/" text="Astro" />.
+        </p> -->
+
+        <p>
+          From tinkering with my dad's desktop PC as a kid to building software
+          for <ProfileBriefLink url="https://yiaga.org/" text="NGOs," />
+          <ProfileBriefLink url="https://314ltd.com/" text="home automation," />
+          a <ProfileBriefLink
+            text={"national organization,"}
+            url={"https://ncair.nitda.gov.ng/"}
+          /> and <ProfileBriefLink
+            text={"high-profile startups,"}
+            url={"https://nextbasket.com/"}
+          /> I've had a blast exploring the digital world. My journey has been fueled
+          by a lifelong curiosity and a passion for creating innovative solutions.
+        </p>
+        <p>
+          My expertise lies in building
+          <strong>scalable, user-centric web applications</strong>
+          using a modern stack, including
+          <ProfileBriefLink text={"React,"} url={"https://react.dev/"} />
+          <ProfileBriefLink text="Next.js," url="https://nextjs.org/" /> and
+          <ProfileBriefLink text="Node.js." url="https://nodejs.org/en" /> My professional
+          journey has allowed me to lead ML and Python workshops, build robust backend
+          APIs with Node.js and
+          <ProfileBriefLink text="Express," url="https://expressjs.com/" /> design
+          <ProfileBriefLink
+            text="PostgreSQL"
+            url="https://www.postgresql.org/"
+          />
+          databases, and develop mobile applications with
+          <ProfileBriefLink text="Flutter" url="https://flutter.dev/" /> and
+          <ProfileBriefLink
+            text="React Native."
+            url="https://reactnative.dev/"
+          />
+        </p>
+        <p>
+          Most recently, as a
+          <strong
+            >Senior Frontend Developer at
+            <ProfileBriefLink
+              url="https://nextbasket.com/"
+              text="NEXT BASKET,"
+            />
+          </strong> I collaborated with cross-functional, international teams to
+          deliver high-quality frontend solutions. My focus was on leveraging Next.js
+          to develop scalable, user-friendly e-commerce interfaces and resolving
+          complex performance bottlenecks to significantly improve website speed
+          and user experience. When I'm not immersed in work, I explore new tech
+          trends. This portfolio, for instance, was built using
+          <ProfileBriefLink url="https://astro.build/" text="Astro." />
         </p>
       </section>
 
@@ -182,9 +232,37 @@ const { education, interests, personalDetails, resume, skills } = profileData;
       </section>
 
       <footer class="max-w-md pb-16 text-sm text-slate-500 sm:pb-0">
-        Loosely designed in Figma and coded in Visual Studio Code by yours
-        truly. Built with Astro and Tailwind CSS, deployed with Vercel. All text
-        is set in the Inter typeface.
+        <p class="mt-4">
+          Built with
+          <a
+            href="https://astro.build/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-medium text-slate-400 hover:text-slate-300">Astro</a
+          >
+          &
+          <a
+            href="https://tailwindcss.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-medium text-slate-400 hover:text-slate-300"
+            >Tailwind CSS</a
+          >, deployed on
+          <a
+            href="https://cloudflare.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-medium text-slate-400 hover:text-slate-300"
+            >Cloudflare</a
+          >. All text is set in the
+          <a
+            href="https://fonts.google.com/specimen/Inter"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-medium text-slate-400 hover:text-slate-300">Inter</a
+          >
+          typeface.
+        </p>
       </footer>
     </div>
   </main>
