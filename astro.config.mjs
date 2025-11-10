@@ -4,19 +4,22 @@ import cloudflare from "@astrojs/cloudflare";
 import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
-	adapter: cloudflare({
-		platformProxy: {
-			enabled: true,
-		},
+    site: "https://salimhussaini.dev",
+    adapter: cloudflare({
+        platformProxy: {
+            enabled: true,
+        },
 
-		imageService: "cloudflare",
-	}),
+        imageService: "cloudflare",
+    }),
 
-	vite: {
-		plugins: [tailwindcss()],
-	},
+    vite: {
+        plugins: [tailwindcss()],
+    },
 
-	integrations: [icon()],
+    integrations: [icon(), sitemap()],
 });
