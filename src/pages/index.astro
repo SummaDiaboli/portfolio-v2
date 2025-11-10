@@ -70,27 +70,33 @@ const { education, interests, personalDetails, resume, skills } = profileData;
 
         <div>
           <ul class="flex flex-row space-x-4">
-            <a
-              href={personalDetails.githubLink}
-              target="_blank"
-              rel="no-referrer"
-            >
-              <Icon
-                name="fontisto:github"
-                class="text-2xl text-slate-400 hover:text-slate-200 cursor-pointer"
-              />
-            </a>
+            <li>
+              <a
+                href={personalDetails.githubLink}
+                target="_blank"
+                rel="no-referrer"
+              >
+                <Icon
+                  name="fontisto:github"
+                  class="text-2xl text-slate-400 hover:text-slate-200 cursor-pointer"
+                />
+                <p class="sr-only">GitHub</p>
+              </a>
+            </li>
 
-            <a
-              href={personalDetails.linkedInLink}
-              target="_blank"
-              rel="no-referrer"
-            >
-              <Icon
-                name="fontisto:linkedin"
-                class="text-2xl text-slate-400 hover:text-slate-200 cursor-pointer"
-              />
-            </a>
+            <li>
+              <a
+                href={personalDetails.linkedInLink}
+                target="_blank"
+                rel="no-referrer"
+              >
+                <Icon
+                  name="fontisto:linkedin"
+                  class="text-2xl text-slate-400 hover:text-slate-200 cursor-pointer"
+                />
+                <p class="sr-only">LinkedIn</p>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
