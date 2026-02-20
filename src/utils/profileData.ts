@@ -35,7 +35,7 @@ type EducationProps = {
 const personalDetails: PersonalDetailsProps = {
 	name: "Salim Hussaini",
 	brief:
-		"Results-driven Full-Stack Web Developer with a passion for crafting innovative, scalable, and user-centric digital solutions",
+		"Results-driven Fullstack Engineer with a passion for crafting innovative, scalable, and secure software solutions",
 	email: "salimabdu008@gmail.com",
 	phone: "+(46) 769577669",
 	githubLink: "https://github.com/SummaDiaboli/",
