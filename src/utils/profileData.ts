@@ -126,14 +126,10 @@ const resume: ResumeProps[] = [
 			"Collaborated with international, cross-functional teams to deliver high-quality e-commerce solutions. My role focused on leveraging Next.js to optimize performance, resolve critical client-facing issues, and build scalable, user-friendly interfaces.",
 		languages: ["Typescript", "Javascript", "React", "Next.js", "Material UI"],
 		bulletPoints: [
-			"Engineered and delivered high-quality frontend solutions in collaboration with globally distributed, cross-functional teams.",
-			"Actively participated in a full agile development lifecycle, including daily stand-ups, sprint planning, and retrospectives to ensure project alignment.",
-			"Architected and developed scalable, user-friendly e-commerce interfaces using Next.js, driving client engagement and conversion.",
-			"Identified and resolved complex frontend performance bottlenecks, achieving significant improvements in website speed and user experience.",
-			"Rapidly diagnosed and addressed critical, high-impact issues for e-commerce clients, ensuring business continuity and minimizing downtime.",
-			"Applied a deep understanding of e-commerce principles (UX, payment gateways, catalog management) to deliver tailored solutions.",
-			"Authored and maintained robust unit and integration tests, enhancing code quality, maintainability, and early defect detection.",
-			"Utilized Jira and Confluence for transparent task management and comprehensive documentation, ensuring project alignment.",
+			"Improved render performance on high-volume order pages handling 10,000+ unpaginated records by implementing ag-grid with useMemo caching and session storage, reducing load times significantly for end users.",
+			"Established frontend testing standards across the Next.js platform introducing unit and integration tests that improved code maintainability and reduced regression bugs.",
+			"Rebuilt the order creation and editing flow from scratch under a tight deadline, resulting in 70% improved customer satisfaction ratings.",
+			"Architected and deployed a shared AI chatbot package across two architecturally different platforms using a private npm registry and CSS-in-JS, reducing duplication and establishing a single source of truth.",
 		],
 	},
 	{
@@ -152,9 +148,9 @@ const resume: ResumeProps[] = [
 			"Tensorflow",
 		],
 		bulletPoints: [
-			"Led successful workshops and training sessions on Machine Learning and Python, fostering a culture of continuous learning within the organization.",
-			"Developed and deployed innovative applications using ML frameworks like TensorFlow to drive practical solutions to complex problems.",
-			"Collaborated directly with the National Director to strategize and execute high-impact projects aligned with organizational goals.",
+			"Trained 100+ members in Machine Learning and Python programming through engaging workshops.",
+			"Developed innovative applications using machine learning frameworks like TensorFlow.",
+			"Led development of an ML-powered ailment detection system that reduced diagnosis time from hours to minutes.",
 		],
 	},
 	{
@@ -173,10 +169,8 @@ const resume: ResumeProps[] = [
 			"TailwindCSS",
 		],
 		bulletPoints: [
-			"Built and deployed scalable, user-centric frontend applications using Next.js, React, and Vercel.",
-			"Architected robust RESTful APIs using Node.js and Express to power complex e-commerce platforms.",
-			"Developed and delivered native-quality mobile applications for both iOS and Android using React Native.",
-			"Designed and managed PostgreSQL databases with Supabase, ensuring efficient and secure data storage for e-commerce applications.",
+			"Delivered 20+ full-stack web applications across finance, healthcare and NGO sectors using Next.js, Node.js and React Native, maintaining an 80% client satisfaction rate.",
+			"Built and deployed complete products independently, from backend APIs with Node.js and PostgreSQL to mobile applications with React Native, taking full ownership of architecture and delivery.",
 		],
 	},
 	{
