@@ -276,20 +276,20 @@ const { education, interests, personalDetails, resume, skills } = profileData;
       if (aboutDiv.includes(anchor)) {
         gsap.to(aboutDiv, {
           onStart: () => {
-            document.querySelector(aboutDiv).classList.replace("w-7", "w-14");
+            document.querySelector(aboutDiv)?.classList.replace("w-7", "w-14");
             document
               .querySelector(aboutP)
-              .classList.replace("text-slate-400", "text-slate-200");
+              ?.classList.replace("text-slate-400", "text-slate-200");
           },
         });
       }
     } else {
       gsap.to(aboutDiv, {
         onStart: () => {
-          document.querySelector(aboutDiv).classList.replace("w-7", "w-14");
+          document.querySelector(aboutDiv)?.classList.replace("w-7", "w-14");
           document
             .querySelector(aboutP)
-            .classList.replace("text-slate-400", "text-slate-200");
+            ?.classList.replace("text-slate-400", "text-slate-200");
         },
       });
     }
@@ -316,38 +316,38 @@ const { education, interests, personalDetails, resume, skills } = profileData;
       gsap.to(aboutDiv, {
         // duration: 0.5,
         onStart: () => {
-          document.querySelector(aboutDiv).classList.replace("w-14", "w-7");
+          document.querySelector(aboutDiv)?.classList.replace("w-14", "w-7");
           document
             .querySelector(aboutP)
-            .classList.replace("text-slate-200", "text-slate-400");
+            ?.classList.replace("text-slate-200", "text-slate-400");
         },
       });
       gsap.to(expDiv, {
         onStart: () => {
-          document.querySelector(expDiv).classList.replace("w-7", "w-14");
+          document.querySelector(expDiv)?.classList.replace("w-7", "w-14");
 
           document
             .querySelector(expP)
-            .classList.replace("text-slate-400", "text-slate-200");
+            ?.classList.replace("text-slate-400", "text-slate-200");
         },
       });
     },
     onEnterBack: () => {
       gsap.to(expDiv, {
         onStart: () => {
-          document.querySelector(expDiv).classList.replace("w-14", "w-7");
+          document.querySelector(expDiv)?.classList.replace("w-14", "w-7");
           document
             .querySelector(expP)
-            .classList.replace("text-slate-200", "text-slate-400");
+            ?.classList.replace("text-slate-200", "text-slate-400");
         },
       });
 
       gsap.to(aboutDiv, {
         onStart: () => {
-          document.querySelector(aboutDiv).classList.replace("w-7", "w-14");
+          document.querySelector(aboutDiv)?.classList.replace("w-7", "w-14");
           document
             .querySelector(aboutP)
-            .classList.replace("text-slate-400", "text-slate-200");
+            ?.classList.replace("text-slate-400", "text-slate-200");
         },
       });
     },
