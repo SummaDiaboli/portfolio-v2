@@ -34,7 +34,7 @@ type EducationProps = {
 const personalDetails: PersonalDetailsProps = {
 	name: "Salim Hussaini",
 	brief:
-		"Results-driven Fullstack Engineer with a passion for crafting innovative, scalable, and secure software solutions",
+		"Senior Fullstack Engineer specializing in high-performance web applications, with a track record of shipping production systems across e-commerce, civic tech, and AI/ML domains.",
 	email: "salimabdu008@gmail.com",
 	githubLink: "https://github.com/SummaDiaboli/",
 	portfolioLink: "salimhussaini.dev",
@@ -104,7 +104,7 @@ const resume: ResumeProps[] = [
 		role: "Software Engineer",
 		link: "https://ncair.nitda.gov.ng/",
 		description:
-			"Led Python and Machine Learning workshops, developed innovative applications with TensorFlow, and collaborated directly with the National Director on strategic national projects.",
+			"Led Python and Machine Learning workshops for 100+ engineers at Nigeria's national AI agency, and built an ML-powered ailment detection system that could cut clinical diagnosis time from hours to minutes.",
 		duration: { from: new Date("2023-8"), to: new Date("2024-5") },
 		languages: [
 			"Flutter",
@@ -124,11 +124,13 @@ const resume: ResumeProps[] = [
 		company: "Freelance",
 		role: "Fullstack Web Developer",
 		description:
-			"Engineered and deployed full-stack (MERN/PERN) web and mobile applications for a diverse range of clients, focusing on user-centric design and scalability.",
+			"Delivered 20+ full-stack products across finance, healthcare, and NGO sectors, taking sole ownership of architecture, backend APIs, mobile builds, and deployment for each client.",
 		duration: { from: new Date("2022-9"), to: new Date("2023-7") },
 		languages: [
 			"Next.js",
 			"React",
+			"Astro",
+			"Svelte",
 			"Typescript",
 			"React Native",
 			"Express.js",
