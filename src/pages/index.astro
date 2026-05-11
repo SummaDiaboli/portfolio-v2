@@ -12,29 +12,34 @@ const { education, interests, personalDetails, resume, skills } = profileData;
 
 <Layout title="Salim Hussaini | Fullstack Software Engineer">
   <main
-    class="h-screen lg:grid lg:grid-cols-2 lg:justify-items-center mx-5 py-10 lg:py-0 lg:px-16 xl:px-32 2xl:px-56"
+    class="h-screen lg:grid lg:grid-cols-2 lg:gap-x-16 mx-5 py-10 lg:py-0 lg:px-16 xl:px-32 2xl:px-56"
   >
     <div>
       <div class="flex flex-col lg:justify-around lg:h-screen sticky top-0">
         <div>
           <div class="mb-10 lg:mb-20">
             <h1
-              class="text-5xl tracking-tight lg:text-6xl font-bold mb-4 text-slate-200"
+              id="intro-name"
+              class="text-5xl tracking-tight lg:text-6xl font-bold mb-4 bg-clip-text text-transparent"
+              style="background-image: linear-gradient(90deg, #e2e8f0, #86efac, #e2e8f0); background-size: 200%; animation: gradient-shift 6s ease infinite;"
             >
               Salim Hussaini
             </h1>
-            <p
-              class="tracking-tight lg:text-3xl font-semibold mb-6 text-slate-200"
+            <h2
+              id="intro-role"
+              class="tracking-tight text-xl lg:text-3xl font-semibold mb-6 text-slate-200"
             >
               Fullstack Software Engineer
-            </p>
+            </h2>
 
-            <p class="w-[75%]">
+            <p id="intro-brief" class="max-w-sm text-slate-300 leading-relaxed">
               {personalDetails.brief}
             </p>
           </div>
 
-          <div class="hidden lg:flex">
+          <div class="hidden lg:block border-t border-slate-700/50 mb-6"></div>
+
+          <div id="intro-nav" class="hidden lg:flex">
             <nav class="uppercase flex flex-col gap-y-2">
               <a
                 href="#about"
@@ -69,7 +74,7 @@ const { education, interests, personalDetails, resume, skills } = profileData;
           </div>
         </div>
 
-        <div>
+        <div id="intro-social">
           <ul class="flex flex-row space-x-3">
             <li>
               <a
@@ -108,19 +113,19 @@ const { education, interests, personalDetails, resume, skills } = profileData;
     <div class="py-24 flex flex-col space-y-20 lg:space-y-32">
       <section
         id="about"
-        class="lg:flex lg:flex-col lg:space-y-5 scroll-mt-28 text-justify"
+        class="lg:flex lg:flex-col lg:space-y-5 scroll-mt-28"
       >
         <div
-          class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900 75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
+          class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
         >
           <h2
-            class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only"
+            class="section-label text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only"
           >
             About
           </h2>
         </div>
 
-        <p>
+        <p class="about-paragraph text-slate-300">
           Over the last six years, I have engineered software for everything from <ProfileBriefLink
             text={"international e-commerce platforms"}
             url={"https://nextbasket.com/"}
@@ -131,15 +136,15 @@ const { education, interests, personalDetails, resume, skills } = profileData;
           Today, I am combining my extensive background in frontend architecture with a Master's in Cybersecurity to build applications 
           that are as secure as they are scalable.
         </p>
-        <p>
+        <p class="about-paragraph text-slate-300">
           My expertise lies in building
-          <strong>scalable, user-centric web applications</strong>
+          <strong class="text-slate-200">scalable, user-centric web applications</strong>
           using a modern stack, including
           <ProfileBriefLink text={"React,"} url={"https://react.dev/"} />
           <ProfileBriefLink text="Next.js," url="https://nextjs.org/" /> <ProfileBriefLink text="Node.js," url="https://nodejs.org/en" /> and
           <ProfileBriefLink text="PostgreSQL." url="https://postgresql.org/" /> I've shipped everything from ML-powered diagnostic tools to international e-commerce platforms at scale, always owning the full stack from database schema to deployed UI.
         </p>
-        <p>
+        <p class="about-paragraph text-slate-300">
           Most recently, as a
           <strong
             >Senior Frontend Developer at
@@ -158,10 +163,10 @@ const { education, interests, personalDetails, resume, skills } = profileData;
 
       <section id="experience" class="scroll-mt-28">
         <div
-          class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900 75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
+          class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
         >
           <h2
-            class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only"
+            class="section-label text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only"
           >
             Experience
           </h2>
@@ -170,7 +175,7 @@ const { education, interests, personalDetails, resume, skills } = profileData;
         <ul class="flex flex-col gap-y-5 lg:gap-y-10 group/cards -m-5">
           {
             profileData.resume.map((data) => (
-              <li class="cursor-pointer px-5">
+              <li class="experience-card cursor-pointer px-5">
                 {data.link ? (
                   <a
                     href={data.link}
@@ -217,7 +222,7 @@ const { education, interests, personalDetails, resume, skills } = profileData;
         </a>
       </section>
 
-      <footer class="max-w-md pb-16 text-sm text-slate-500 sm:pb-0">
+      <footer class="max-w-md pb-16 text-sm text-slate-400 sm:pb-0">
         <p class="mt-4">
           Built with
           <StyledLink url="https://astro.build/" rel="noopener noreferrer" class="font-medium">Astro</StyledLink>
@@ -238,6 +243,12 @@ const { education, interests, personalDetails, resume, skills } = profileData;
   import { ScrollTrigger } from "gsap/ScrollTrigger";
 
   gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+
+  gsap.fromTo(
+    ["#intro-name", "#intro-role", "#intro-brief", "#intro-nav", "#intro-social"],
+    { opacity: 0, y: 20 },
+    { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: "power2.out" }
+  );
 
   const aboutDiv = `.navlink[href="#about"] > div`;
   const aboutP = `.navlink[href="#about"] > p`;
@@ -289,6 +300,58 @@ const { education, interests, personalDetails, resume, skills } = profileData;
         scrollTo: { y: anchor, offsetY: 50 },
       });
     });
+  });
+
+  gsap.utils.toArray<HTMLElement>(".about-paragraph").forEach((el) => {
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+        },
+      }
+    );
+  });
+
+  gsap.utils.toArray<HTMLElement>(".experience-card").forEach((el, i) => {
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 24 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power2.out",
+        delay: i * 0.05,
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+        },
+      }
+    );
+  });
+
+  gsap.utils.toArray<HTMLElement>(".section-label").forEach((el) => {
+    gsap.fromTo(
+      el,
+      { opacity: 0, x: -10 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.4,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+        },
+      }
+    );
   });
 
   ScrollTrigger.create({
