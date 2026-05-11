@@ -180,9 +180,9 @@ const { education, interests, personalDetails, resume, skills } = profileData;
                     <Card {...data} />
                   </a>
                 ) : (
-                  <p>
+                  <div>
                     <Card {...data} />
-                  </p>
+                  </div>
                 )}
               </li>
             ))
@@ -190,7 +190,7 @@ const { education, interests, personalDetails, resume, skills } = profileData;
         </ul>
 
         <a
-          class="text-slate-200 flex flex-row gap-x-1 items-center group mt-6"
+          class="w-fit text-slate-200 flex flex-row gap-x-2 items-center group mt-12 px-5 py-2.5 rounded-xl bg-slate-400/10 border border-slate-400/20 backdrop-blur-sm hover:bg-green-400/10 hover:border-green-400/30 transition-all duration-300"
           href="/Resume - Salim Hussaini.pdf"
           download
         >
@@ -201,7 +201,7 @@ const { education, interests, personalDetails, resume, skills } = profileData;
           </div>
 
           <svg
-            class="group-hover:translate-x-2 transition-all"
+            class="group-hover:translate-x-2 transition-all group-hover:text-green-400"
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="24"
