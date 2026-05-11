@@ -78,37 +78,6 @@ const skills: SkillsProps = {
 		"Jira",
 		"Confluence",
 	],
-	// programmingLanguages: [
-	// 	"Typescript",
-	// 	"Javascript",
-	// 	"Dart",
-	// 	"Rust",
-	// 	"Go",
-	// 	"Python",
-	// 	"PostgreSQL",
-	// ],
-	// libraries: [
-	// 	"React",
-	// 	"Next.js",
-	// 	"React Native",
-	// 	"TailwindCSS",
-	// 	"Flutter",
-	// 	"Node.js",
-	// 	"Express.js",
-	// 	"Jest",
-	// ],
-	// tools: [
-	// 	"Hasura",
-	// 	"Firebase",
-	// 	"Git",
-	// 	"GitHub",
-	// 	"Bitbucket",
-	// 	"Supabase",
-	// 	"Vercel",
-	// 	"Netlify",
-	// 	"Jira",
-	// 	"Confluence",
-	// ],
 };
 
 const resume: ResumeProps[] = [
