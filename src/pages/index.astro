@@ -3,6 +3,7 @@ import Layout from "@layouts/Layout.astro";
 
 import Card from "@components/Card.astro";
 import ProfileBriefLink from "@components/ProfileBriefLink.astro";
+import StyledLink from "@components/StyledLink.astro";
 import { profileData } from "@utils/profileData";
 import { Icon } from "astro-icon/components";
 
@@ -69,16 +70,17 @@ const { education, interests, personalDetails, resume, skills } = profileData;
         </div>
 
         <div>
-          <ul class="flex flex-row space-x-4">
+          <ul class="flex flex-row space-x-3">
             <li>
               <a
                 href={personalDetails.githubLink}
                 target="_blank"
                 rel="noreferrer"
+                class="group flex items-center justify-center p-3 rounded-xl bg-slate-400/10 border border-slate-400/20 backdrop-blur-sm hover:bg-green-400/10 hover:border-green-400/30 transition-all duration-300"
               >
                 <Icon
                   name="fontisto:github"
-                  class="text-2xl text-slate-400 hover:text-slate-200 cursor-pointer"
+                  class="text-xl text-slate-400 group-hover:text-green-400 transition-colors duration-300"
                 />
                 <p class="sr-only">GitHub</p>
               </a>
@@ -89,10 +91,11 @@ const { education, interests, personalDetails, resume, skills } = profileData;
                 href={personalDetails.linkedInLink}
                 target="_blank"
                 rel="noreferrer"
+                class="group flex items-center justify-center p-3 rounded-xl bg-slate-400/10 border border-slate-400/20 backdrop-blur-sm hover:bg-green-400/10 hover:border-green-400/30 transition-all duration-300"
               >
                 <Icon
                   name="fontisto:linkedin"
-                  class="text-2xl text-slate-400 hover:text-slate-200 cursor-pointer"
+                  class="text-xl text-slate-400 group-hover:text-green-400 transition-colors duration-300"
                 />
                 <p class="sr-only">LinkedIn</p>
               </a>
@@ -192,7 +195,7 @@ const { education, interests, personalDetails, resume, skills } = profileData;
           download
         >
           <div
-            class="group-hover:underline group-hover:decoration-green-400 group-hover:underline-offset-4"
+            class="relative group-hover:text-green-400 transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-green-400 after:transition-all after:duration-300 group-hover:after:w-full"
           >
             Download My Resume
           </div>
@@ -217,33 +220,11 @@ const { education, interests, personalDetails, resume, skills } = profileData;
       <footer class="max-w-md pb-16 text-sm text-slate-500 sm:pb-0">
         <p class="mt-4">
           Built with
-          <a
-            href="https://astro.build/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="font-medium text-slate-200 hover:text-slate-300">Astro</a
-          >
+          <StyledLink url="https://astro.build/" rel="noopener noreferrer" class="font-medium">Astro</StyledLink>
           &
-          <a
-            href="https://tailwindcss.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="font-medium text-slate-200 hover:text-slate-300"
-            >Tailwind CSS</a
-          >, deployed on
-          <a
-            href="https://cloudflare.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="font-medium text-slate-200 hover:text-slate-300"
-            >Cloudflare</a
-          >. All text is set in the
-          <a
-            href="https://fonts.google.com/specimen/Inter"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="font-medium text-slate-200 hover:text-slate-300">Inter</a
-          >
+          <StyledLink url="https://tailwindcss.com/" rel="noopener noreferrer" class="font-medium">Tailwind CSS</StyledLink>, deployed on
+          <StyledLink url="https://cloudflare.com/" rel="noopener noreferrer" class="font-medium">Cloudflare</StyledLink>. All text is set in the
+          <StyledLink url="https://fonts.google.com/specimen/Inter" rel="noopener noreferrer" class="font-medium">Inter</StyledLink>
           typeface.
         </p>
       </footer>

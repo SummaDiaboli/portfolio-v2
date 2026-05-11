@@ -1,0 +1,21 @@
+---
+interface Props {
+  url: string;
+  class?: string;
+  rel?: string;
+}
+
+const { url, class: className = "", rel = "noreferrer" } = Astro.props;
+---
+
+<a
+  href={url}
+  target="_blank"
+  rel={rel}
+  class:list={[
+    "inline-block text-slate-200 relative hover:text-green-400 transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-green-400 after:transition-all after:duration-300 hover:after:w-full",
+    className,
+  ]}
+>
+  <slot />
+</a>

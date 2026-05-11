@@ -36,6 +36,22 @@ const { title } = Astro.props;
   </head>
   
   <body class="bg-portfolio text-slate-400 font-sans">
+    <a
+      href="#about"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:rounded focus:bg-slate-800 focus:text-slate-200 focus:text-sm focus:font-medium focus:ring-2 focus:ring-green-400"
+    >
+      Skip to main content
+    </a>
+    <div id="spotlight" class="pointer-events-none fixed inset-0 z-30 transition-opacity duration-300"></div>
     <slot />
   </body>
 </html>
+
+<script>
+  const spotlight = document.getElementById("spotlight");
+
+  document.addEventListener("mousemove", (e) => {
+    if (!spotlight) return;
+    spotlight.style.background = `radial-gradient(400px at ${e.clientX}px ${e.clientY}px, rgba(29, 78, 216, 0.15), transparent 80%)`;
+  });
+</script>
