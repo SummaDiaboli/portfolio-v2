@@ -15,7 +15,6 @@ type PersonalDetailsProps = {
 	name: string;
 	brief: string;
 	email: string;
-	phone: string;
 	githubLink: string;
 	portfolioLink: string;
 	linkedInLink: string;
@@ -37,7 +36,6 @@ const personalDetails: PersonalDetailsProps = {
 	brief:
 		"Results-driven Fullstack Engineer with a passion for crafting innovative, scalable, and secure software solutions",
 	email: "salimabdu008@gmail.com",
-	phone: "+(46) 769577669",
 	githubLink: "https://github.com/SummaDiaboli/",
 	portfolioLink: "salimhussaini.dev",
 	linkedInLink: "https://www.linkedin.com/in/salim-hussaini-059a33108/",
@@ -80,37 +78,6 @@ const skills: SkillsProps = {
 		"Jira",
 		"Confluence",
 	],
-	// programmingLanguages: [
-	// 	"Typescript",
-	// 	"Javascript",
-	// 	"Dart",
-	// 	"Rust",
-	// 	"Go",
-	// 	"Python",
-	// 	"PostgreSQL",
-	// ],
-	// libraries: [
-	// 	"React",
-	// 	"Next.js",
-	// 	"React Native",
-	// 	"TailwindCSS",
-	// 	"Flutter",
-	// 	"Node.js",
-	// 	"Express.js",
-	// 	"Jest",
-	// ],
-	// tools: [
-	// 	"Hasura",
-	// 	"Firebase",
-	// 	"Git",
-	// 	"GitHub",
-	// 	"Bitbucket",
-	// 	"Supabase",
-	// 	"Vercel",
-	// 	"Netlify",
-	// 	"Jira",
-	// 	"Confluence",
-	// ],
 };
 
 const resume: ResumeProps[] = [
