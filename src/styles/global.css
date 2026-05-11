@@ -37,6 +37,11 @@
   --color-portfolio: #10192e;
 }
 
+::selection {
+  background-color: rgba(134, 239, 172, 0.3);
+  color: #e2e8f0;
+}
+
 @keyframes gradient-shift {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
