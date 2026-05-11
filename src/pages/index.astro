@@ -113,7 +113,7 @@ const { education, interests, personalDetails, resume, skills } = profileData;
     <div class="py-24 flex flex-col space-y-20 lg:space-y-32">
       <section
         id="about"
-        class="lg:flex lg:flex-col lg:space-y-5 scroll-mt-28"
+        class="flex flex-col space-y-4 lg:space-y-5 scroll-mt-28"
       >
         <div
           class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
@@ -172,10 +172,10 @@ const { education, interests, personalDetails, resume, skills } = profileData;
           </h2>
         </div>
 
-        <ul class="flex flex-col gap-y-5 lg:gap-y-10 group/cards -m-5">
+        <ul class="flex flex-col gap-y-5 lg:gap-y-10 group/cards -m-5 pointer-events-none">
           {
             profileData.resume.map((data) => (
-              <li class="experience-card cursor-pointer px-5">
+              <li class="experience-card cursor-pointer px-5 pointer-events-auto">
                 {data.link ? (
                   <a
                     href={data.link}
@@ -195,7 +195,7 @@ const { education, interests, personalDetails, resume, skills } = profileData;
         </ul>
 
         <a
-          class="w-fit text-slate-200 flex flex-row gap-x-2 items-center group mt-12 px-5 py-2.5 rounded-xl bg-slate-400/10 border border-slate-400/20 backdrop-blur-sm hover:bg-green-400/10 hover:border-green-400/30 transition-all duration-300"
+          class="w-fit text-slate-200 flex flex-row gap-x-2 items-center group mt-12 px-5 py-2.5 rounded-xl bg-slate-400/10 border border-slate-400/20 hover:bg-green-400/10 hover:border-green-400/30 transition-all duration-300"
           href="/Resume - Salim Hussaini.pdf"
           download
         >
