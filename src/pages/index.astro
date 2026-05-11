@@ -3,6 +3,7 @@ import Layout from "@layouts/Layout.astro";
 
 import Card from "@components/Card.astro";
 import ProfileBriefLink from "@components/ProfileBriefLink.astro";
+import StyledLink from "@components/StyledLink.astro";
 import { profileData } from "@utils/profileData";
 import { Icon } from "astro-icon/components";
 
@@ -11,40 +12,45 @@ const { education, interests, personalDetails, resume, skills } = profileData;
 
 <Layout title="Salim Hussaini | Fullstack Software Engineer">
   <main
-    class="h-screen lg:grid lg:grid-cols-2 lg:justify-items-center lg:px-56 mx-5 py-10 lg:py-0"
+    class="h-screen lg:grid lg:grid-cols-2 lg:gap-x-16 mx-5 py-10 lg:py-0 lg:px-16 xl:px-32 2xl:px-56"
   >
     <div>
       <div class="flex flex-col lg:justify-around lg:h-screen sticky top-0">
         <div>
           <div class="mb-10 lg:mb-20">
             <h1
-              class="text-5xl tracking-tight lg:text-6xl font-bold mb-4 text-slate-200"
+              id="intro-name"
+              class="text-5xl tracking-tight lg:text-6xl font-bold mb-4 bg-clip-text text-transparent"
+              style="background-image: linear-gradient(90deg, #e2e8f0, #86efac, #e2e8f0); background-size: 200%; animation: gradient-shift 6s ease infinite;"
             >
               Salim Hussaini
             </h1>
-            <p
-              class="tracking-tight lg:text-3xl font-semibold mb-6 text-slate-200"
+            <h2
+              id="intro-role"
+              class="tracking-tight text-xl lg:text-3xl font-semibold mb-6 text-slate-200"
             >
               Fullstack Software Engineer
-            </p>
+            </h2>
 
-            <p class="w-[75%]">
+            <p id="intro-brief" class="max-w-sm text-slate-300 leading-relaxed">
               {personalDetails.brief}
             </p>
           </div>
 
-          <div class="hidden lg:flex">
+          <div class="hidden lg:block border-t border-slate-700/50 mb-6"></div>
+
+          <div id="intro-nav" class="hidden lg:flex">
             <nav class="uppercase flex flex-col gap-y-2">
               <a
                 href="#about"
                 class="flex flex-row items-center gap-x-3 navlink w-fit px-4 py-2 group transition duration-500"
               >
                 <div
-                  class="bg-white h-0.5 w-7 group-hover:w-14 transition-all duration-500"
+                  class="bg-slate-600 group-hover:bg-green-400 h-0.5 w-7 group-hover:w-14 transition-all duration-500"
                 >
                 </div>
                 <p
-                  class="text-xs leading-tight tracking-widest font-bold text-slate-400 group-hover:text-slate-200"
+                  class="text-xs leading-tight tracking-widest font-bold text-slate-400 group-hover:text-green-400"
                 >
                   About
                 </p>
@@ -55,11 +61,11 @@ const { education, interests, personalDetails, resume, skills } = profileData;
                 class="flex flex-row items-center gap-x-3 navlink w-fit px-4 py-2 group transition duration-500"
               >
                 <div
-                  class="bg-white h-0.5 w-7 group-hover:w-14 transition-all duration-500"
+                  class="bg-slate-600 group-hover:bg-green-400 h-0.5 w-7 group-hover:w-14 transition-all duration-500"
                 >
                 </div>
                 <p
-                  class="text-xs leading-tight tracking-widest font-bold text-slate-400 group-hover:text-slate-200 data-active"
+                  class="text-xs leading-tight tracking-widest font-bold text-slate-400 group-hover:text-green-400"
                 >
                   Experience
                 </p>
@@ -68,17 +74,18 @@ const { education, interests, personalDetails, resume, skills } = profileData;
           </div>
         </div>
 
-        <div>
-          <ul class="flex flex-row space-x-4">
+        <div id="intro-social">
+          <ul class="flex flex-row space-x-3">
             <li>
               <a
                 href={personalDetails.githubLink}
                 target="_blank"
                 rel="noreferrer"
+                class="group flex items-center justify-center p-3 rounded-xl bg-slate-400/10 border border-slate-400/20 backdrop-blur-sm hover:bg-green-400/10 hover:border-green-400/30 transition-all duration-300"
               >
                 <Icon
                   name="fontisto:github"
-                  class="text-2xl text-slate-400 hover:text-slate-200 cursor-pointer"
+                  class="text-xl text-slate-400 group-hover:text-green-400 transition-colors duration-300"
                 />
                 <p class="sr-only">GitHub</p>
               </a>
@@ -89,10 +96,11 @@ const { education, interests, personalDetails, resume, skills } = profileData;
                 href={personalDetails.linkedInLink}
                 target="_blank"
                 rel="noreferrer"
+                class="group flex items-center justify-center p-3 rounded-xl bg-slate-400/10 border border-slate-400/20 backdrop-blur-sm hover:bg-green-400/10 hover:border-green-400/30 transition-all duration-300"
               >
                 <Icon
                   name="fontisto:linkedin"
-                  class="text-2xl text-slate-400 hover:text-slate-200 cursor-pointer"
+                  class="text-xl text-slate-400 group-hover:text-green-400 transition-colors duration-300"
                 />
                 <p class="sr-only">LinkedIn</p>
               </a>
@@ -105,19 +113,19 @@ const { education, interests, personalDetails, resume, skills } = profileData;
     <div class="py-24 flex flex-col space-y-20 lg:space-y-32">
       <section
         id="about"
-        class="lg:flex lg:flex-col lg:space-y-5 scroll-mt-28 text-justify"
+        class="flex flex-col space-y-4 lg:space-y-5 scroll-mt-28"
       >
         <div
-          class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900 75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
+          class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
         >
           <h2
-            class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only"
+            class="section-label text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only"
           >
             About
           </h2>
         </div>
 
-        <p>
+        <p class="about-paragraph text-slate-300">
           Over the last six years, I have engineered software for everything from <ProfileBriefLink
             text={"international e-commerce platforms"}
             url={"https://nextbasket.com/"}
@@ -128,15 +136,15 @@ const { education, interests, personalDetails, resume, skills } = profileData;
           Today, I am combining my extensive background in frontend architecture with a Master's in Cybersecurity to build applications 
           that are as secure as they are scalable.
         </p>
-        <p>
+        <p class="about-paragraph text-slate-300">
           My expertise lies in building
-          <strong>scalable, user-centric web applications</strong>
+          <strong class="text-slate-200">scalable, user-centric web applications</strong>
           using a modern stack, including
           <ProfileBriefLink text={"React,"} url={"https://react.dev/"} />
           <ProfileBriefLink text="Next.js," url="https://nextjs.org/" /> <ProfileBriefLink text="Node.js," url="https://nodejs.org/en" /> and
           <ProfileBriefLink text="PostgreSQL." url="https://postgresql.org/" /> I've shipped everything from ML-powered diagnostic tools to international e-commerce platforms at scale, always owning the full stack from database schema to deployed UI.
         </p>
-        <p>
+        <p class="about-paragraph text-slate-300">
           Most recently, as a
           <strong
             >Senior Frontend Developer at
@@ -155,19 +163,19 @@ const { education, interests, personalDetails, resume, skills } = profileData;
 
       <section id="experience" class="scroll-mt-28">
         <div
-          class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900 75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
+          class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
         >
           <h2
-            class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only"
+            class="section-label text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only"
           >
             Experience
           </h2>
         </div>
 
-        <ul class="flex flex-col gap-y-5 lg:gap-y-10 group/cards -m-5">
+        <ul class="flex flex-col gap-y-5 lg:gap-y-10 group/cards -m-5 pointer-events-none">
           {
             profileData.resume.map((data) => (
-              <li class="cursor-pointer px-5">
+              <li class="experience-card cursor-pointer px-5 pointer-events-auto">
                 {data.link ? (
                   <a
                     href={data.link}
@@ -177,9 +185,9 @@ const { education, interests, personalDetails, resume, skills } = profileData;
                     <Card {...data} />
                   </a>
                 ) : (
-                  <p>
+                  <div>
                     <Card {...data} />
-                  </p>
+                  </div>
                 )}
               </li>
             ))
@@ -187,18 +195,18 @@ const { education, interests, personalDetails, resume, skills } = profileData;
         </ul>
 
         <a
-          class="text-slate-200 flex flex-row gap-x-1 items-center group mt-6"
+          class="w-fit text-slate-200 flex flex-row gap-x-2 items-center group mt-12 px-5 py-2.5 rounded-xl bg-slate-400/10 border border-slate-400/20 hover:bg-green-400/10 hover:border-green-400/30 transition-all duration-300"
           href="/Resume - Salim Hussaini.pdf"
           download
         >
           <div
-            class="group-hover:underline group-hover:decoration-green-400 group-hover:underline-offset-4"
+            class="relative group-hover:text-green-400 transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-green-400 after:transition-all after:duration-300 group-hover:after:w-full"
           >
             Download My Resume
           </div>
 
           <svg
-            class="group-hover:translate-x-2 transition-all"
+            class="group-hover:translate-x-2 transition-all group-hover:text-green-400"
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="24"
@@ -214,36 +222,14 @@ const { education, interests, personalDetails, resume, skills } = profileData;
         </a>
       </section>
 
-      <footer class="max-w-md pb-16 text-sm text-slate-500 sm:pb-0">
+      <footer class="max-w-md pb-16 text-sm text-slate-400 sm:pb-0">
         <p class="mt-4">
           Built with
-          <a
-            href="https://astro.build/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="font-medium text-slate-200 hover:text-slate-300">Astro</a
-          >
+          <StyledLink url="https://astro.build/" rel="noopener noreferrer" class="font-medium">Astro</StyledLink>
           &
-          <a
-            href="https://tailwindcss.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="font-medium text-slate-200 hover:text-slate-300"
-            >Tailwind CSS</a
-          >, deployed on
-          <a
-            href="https://cloudflare.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="font-medium text-slate-200 hover:text-slate-300"
-            >Cloudflare</a
-          >. All text is set in the
-          <a
-            href="https://fonts.google.com/specimen/Inter"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="font-medium text-slate-200 hover:text-slate-300">Inter</a
-          >
+          <StyledLink url="https://tailwindcss.com/" rel="noopener noreferrer" class="font-medium">Tailwind CSS</StyledLink>, deployed on
+          <StyledLink url="https://cloudflare.com/" rel="noopener noreferrer" class="font-medium">Cloudflare</StyledLink>. All text is set in the
+          <StyledLink url="https://fonts.google.com/specimen/Inter" rel="noopener noreferrer" class="font-medium">Inter</StyledLink>
           typeface.
         </p>
       </footer>
@@ -257,6 +243,12 @@ const { education, interests, personalDetails, resume, skills } = profileData;
   import { ScrollTrigger } from "gsap/ScrollTrigger";
 
   gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+
+  gsap.fromTo(
+    ["#intro-name", "#intro-role", "#intro-brief", "#intro-nav", "#intro-social"],
+    { opacity: 0, y: 20 },
+    { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: "power2.out" }
+  );
 
   const aboutDiv = `.navlink[href="#about"] > div`;
   const aboutP = `.navlink[href="#about"] > p`;
@@ -277,9 +269,10 @@ const { education, interests, personalDetails, resume, skills } = profileData;
         gsap.to(aboutDiv, {
           onStart: () => {
             document.querySelector(aboutDiv)?.classList.replace("w-7", "w-14");
+            document.querySelector(aboutDiv)?.classList.replace("bg-slate-600", "bg-green-400");
             document
               .querySelector(aboutP)
-              ?.classList.replace("text-slate-400", "text-slate-200");
+              ?.classList.replace("text-slate-400", "text-green-400");
           },
         });
       }
@@ -287,9 +280,10 @@ const { education, interests, personalDetails, resume, skills } = profileData;
       gsap.to(aboutDiv, {
         onStart: () => {
           document.querySelector(aboutDiv)?.classList.replace("w-7", "w-14");
+          document.querySelector(aboutDiv)?.classList.replace("bg-slate-600", "bg-green-400");
           document
             .querySelector(aboutP)
-            ?.classList.replace("text-slate-400", "text-slate-200");
+            ?.classList.replace("text-slate-400", "text-green-400");
         },
       });
     }
@@ -308,6 +302,58 @@ const { education, interests, personalDetails, resume, skills } = profileData;
     });
   });
 
+  gsap.utils.toArray<HTMLElement>(".about-paragraph").forEach((el) => {
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+        },
+      }
+    );
+  });
+
+  gsap.utils.toArray<HTMLElement>(".experience-card").forEach((el, i) => {
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 24 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power2.out",
+        delay: i * 0.05,
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+        },
+      }
+    );
+  });
+
+  gsap.utils.toArray<HTMLElement>(".section-label").forEach((el) => {
+    gsap.fromTo(
+      el,
+      { opacity: 0, x: -10 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.4,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+        },
+      }
+    );
+  });
+
   ScrollTrigger.create({
     trigger: "#about",
     start: "bottom center",
@@ -317,18 +363,19 @@ const { education, interests, personalDetails, resume, skills } = profileData;
         // duration: 0.5,
         onStart: () => {
           document.querySelector(aboutDiv)?.classList.replace("w-14", "w-7");
+          document.querySelector(aboutDiv)?.classList.replace("bg-green-400", "bg-slate-600");
           document
             .querySelector(aboutP)
-            ?.classList.replace("text-slate-200", "text-slate-400");
+            ?.classList.replace("text-green-400", "text-slate-400");
         },
       });
       gsap.to(expDiv, {
         onStart: () => {
           document.querySelector(expDiv)?.classList.replace("w-7", "w-14");
-
+          document.querySelector(expDiv)?.classList.replace("bg-slate-600", "bg-green-400");
           document
             .querySelector(expP)
-            ?.classList.replace("text-slate-400", "text-slate-200");
+            ?.classList.replace("text-slate-400", "text-green-400");
         },
       });
     },
@@ -336,18 +383,20 @@ const { education, interests, personalDetails, resume, skills } = profileData;
       gsap.to(expDiv, {
         onStart: () => {
           document.querySelector(expDiv)?.classList.replace("w-14", "w-7");
+          document.querySelector(expDiv)?.classList.replace("bg-green-400", "bg-slate-600");
           document
             .querySelector(expP)
-            ?.classList.replace("text-slate-200", "text-slate-400");
+            ?.classList.replace("text-green-400", "text-slate-400");
         },
       });
 
       gsap.to(aboutDiv, {
         onStart: () => {
           document.querySelector(aboutDiv)?.classList.replace("w-7", "w-14");
+          document.querySelector(aboutDiv)?.classList.replace("bg-slate-600", "bg-green-400");
           document
             .querySelector(aboutP)
-            ?.classList.replace("text-slate-400", "text-slate-200");
+            ?.classList.replace("text-slate-400", "text-green-400");
         },
       });
     },
