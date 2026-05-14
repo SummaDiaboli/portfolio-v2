@@ -104,7 +104,7 @@ const resume: ResumeProps[] = [
 		role: "Software Engineer",
 		link: "https://ncair.nitda.gov.ng/",
 		description:
-			"Led Python and Machine Learning workshops for 100+ engineers at Nigeria's national AI agency, and built an ML-powered ailment detection system that could cut clinical diagnosis time from hours to minutes.",
+			"Led Python and Machine Learning workshops for 100+ engineers at Nigeria's national AI agency, and built an ML-powered ailment detection system exhibited at Digital Nigeria 2023, designed to cut clinical diagnosis time from hours to minutes.",
 		duration: { from: new Date("2023-8"), to: new Date("2024-5") },
 		languages: [
 			"Flutter",
@@ -124,7 +124,7 @@ const resume: ResumeProps[] = [
 		company: "Freelance",
 		role: "Fullstack Web Developer",
 		description:
-			"Delivered 20+ full-stack products across finance, healthcare, and NGO sectors, taking sole ownership of architecture, backend APIs, mobile builds, and deployment for each client.",
+			"Delivered 20+ full-stack products across finance, healthcare, and NGO sectors with an 80% client satisfaction rate, taking sole ownership of architecture, backend APIs, mobile builds, and deployment for each client.",
 		duration: { from: new Date("2022-9"), to: new Date("2023-7") },
 		languages: [
 			"Next.js",
