@@ -1,0 +1,44 @@
+---
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout title="404 | Salim Hussaini">
+  <main class="flex flex-col items-center justify-center h-screen px-6 text-center">
+    <p
+      class="font-bold tracking-tight bg-clip-text text-transparent mb-4"
+      style="font-size: clamp(5rem, 14vw, 10rem); background-image: linear-gradient(90deg, #e2e8f0, #86efac, #e2e8f0); background-size: 200%; animation: gradient-shift 6s ease infinite;"
+    >
+      404
+    </p>
+    <h1 class="text-2xl lg:text-3xl font-bold text-slate-200 tracking-tight mb-4">
+      Page not found
+    </h1>
+    <p class="text-slate-400 max-w-sm mb-10">
+      Looks like this page doesn't exist. You may have followed a broken link or mistyped the address.
+    </p>
+    <a
+      href="/"
+      class="group flex flex-row gap-x-2 items-center px-5 py-2.5 rounded-xl bg-slate-400/10 border border-slate-400/20 text-slate-200 hover:bg-green-400/10 hover:border-green-400/30 transition-all duration-300"
+    >
+      <svg
+        class="group-hover:-translate-x-2 transition-all group-hover:text-green-400"
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="24"
+        viewBox="0 0 16 9"
+      >
+        <path
+          fill="currentColor"
+          d="M3.5 5h9c.28 0 .5-.22.5-.5s-.22-.5-.5-.5h-9c-.28 0-.5.22-.5.5s.22.5.5.5Z"
+        ></path>
+        <path
+          fill="currentColor"
+          d="M6 8.5c.12 0 .24-.05.35-.15l-3.5-3.5l3.5-3.5c.2-.2.2-.51 0-.71c-.2-.2-.51-.2-.71 0l-3.5 3.5c-.2.2-.2.51 0 .71l3.5 3.5c.1.1.23.15.35.15Z"
+        ></path>
+      </svg>
+      <div class="relative group-hover:text-green-400 transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-green-400 after:transition-all after:duration-300 group-hover:after:w-full">
+        Back to home
+      </div>
+    </a>
+  </main>
+</Layout>

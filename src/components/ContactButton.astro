@@ -1,0 +1,47 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  copyValue: string;
+  toastMessage: string;
+}
+
+const { href, label, copyValue, toastMessage } = Astro.props;
+---
+
+<div class="group/split flex flex-row rounded-xl bg-slate-400/10 border border-slate-400/20 hover:bg-green-400/10 hover:border-green-400/30 transition-all duration-300 overflow-hidden w-full">
+  <a
+    href={href}
+    class="flex flex-row gap-x-2 items-center pl-5 pr-4 py-2.5 text-slate-200 flex-1"
+  >
+    <span class="text-slate-400 group-hover/split:text-green-400 transition-colors duration-300">
+      <slot />
+    </span>
+    <span class="text-sm group-hover/split:text-green-400 transition-colors duration-300">
+      {label}
+    </span>
+  </a>
+  <div class="w-px bg-slate-400/20 group-hover/split:bg-green-400/20 transition-colors duration-300 self-stretch"></div>
+  <button
+    data-copy={copyValue}
+    data-toast={toastMessage}
+    class="copy-btn flex items-center justify-center px-3 text-slate-400 group-hover/split:text-green-400 transition-colors duration-300 cursor-pointer"
+    aria-label={`Copy ${label}`}
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+    </svg>
+  </button>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>(".copy-btn").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const text = btn.dataset.copy;
+      const message = btn.dataset.toast;
+      if (!text || !message) return;
+      await navigator.clipboard.writeText(text);
+      document.dispatchEvent(new CustomEvent("copy-toast", { detail: message }));
+    });
+  });
+</script>
