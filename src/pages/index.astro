@@ -221,6 +221,15 @@ const { education, interests, personalDetails, resume, skills } = profileData;
 
   gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (prefersReducedMotion) {
+    gsap.set(
+      ["#intro-name", "#intro-role", "#intro-brief", "#intro-nav", "#intro-social",
+       ".about-paragraph", ".experience-card", ".section-label", ".contact-text"],
+      { opacity: 1, y: 0, x: 0 }
+    );
+  } else {
   gsap.fromTo(
     ["#intro-name", "#intro-role", "#intro-brief", "#intro-nav", "#intro-social"],
     { opacity: 0, y: 20 },
@@ -434,6 +443,8 @@ const { education, interests, personalDetails, resume, skills } = profileData;
       });
     },
   });
+
+  }
 
   const toast = document.getElementById("toast");
   const toastMessage = document.getElementById("toast-message");

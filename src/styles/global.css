@@ -46,3 +46,61 @@
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
+
+@media print {
+  /* Force all content visible regardless of GSAP state */
+  * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* White background, dark text */
+  body {
+    background: white !important;
+    color: #1e293b !important;
+  }
+
+  /* Single column layout */
+  main {
+    display: block !important;
+    height: auto !important;
+    padding: 0 2rem !important;
+  }
+
+  /* Unstick the left panel */
+  .sticky {
+    position: relative !important;
+  }
+
+  /* Hide non-content elements */
+  #spotlight,
+  #scroll-top,
+  #resume-modal,
+  #toast,
+  nav,
+  footer {
+    display: none !important;
+  }
+
+  /* Readable text colors */
+  h1, h2, h3, p, span, li, a {
+    color: #1e293b !important;
+    background: none !important;
+    -webkit-text-fill-color: #1e293b !important;
+  }
+
+  /* Tech badges */
+  li[class*="bg-green"] {
+    background: #f1f5f9 !important;
+    color: #1e293b !important;
+    border-color: #cbd5e1 !important;
+  }
+
+  /* Avoid breaking cards across pages */
+  .experience-card,
+  .contact-text {
+    break-inside: avoid;
+  }
+}
