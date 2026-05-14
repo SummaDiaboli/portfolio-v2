@@ -4,9 +4,10 @@ import Layout from "@layouts/Layout.astro";
 import Card from "@components/Card.astro";
 import ProfileBriefLink from "@components/ProfileBriefLink.astro";
 import ResumeModal from "@components/ResumeModal.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import SocialLinks from "@components/SocialLinks.astro";
 import StyledLink from "@components/StyledLink.astro";
 import { profileData } from "@utils/profileData";
-import { Icon } from "astro-icon/components";
 
 const { education, interests, personalDetails, resume, skills } = profileData;
 ---
@@ -76,37 +77,7 @@ const { education, interests, personalDetails, resume, skills } = profileData;
         </div>
 
         <div id="intro-social">
-          <ul class="flex flex-row space-x-3">
-            <li>
-              <a
-                href={personalDetails.githubLink}
-                target="_blank"
-                rel="noreferrer"
-                class="group flex items-center justify-center p-3 rounded-xl bg-slate-400/10 border border-slate-400/20 backdrop-blur-sm hover:bg-green-400/10 hover:border-green-400/30 transition-all duration-300"
-              >
-                <Icon
-                  name="fontisto:github"
-                  class="text-xl text-slate-400 group-hover:text-green-400 transition-colors duration-300"
-                />
-                <p class="sr-only">GitHub</p>
-              </a>
-            </li>
-
-            <li>
-              <a
-                href={personalDetails.linkedInLink}
-                target="_blank"
-                rel="noreferrer"
-                class="group flex items-center justify-center p-3 rounded-xl bg-slate-400/10 border border-slate-400/20 backdrop-blur-sm hover:bg-green-400/10 hover:border-green-400/30 transition-all duration-300"
-              >
-                <Icon
-                  name="fontisto:linkedin"
-                  class="text-xl text-slate-400 group-hover:text-green-400 transition-colors duration-300"
-                />
-                <p class="sr-only">LinkedIn</p>
-              </a>
-            </li>
-          </ul>
+          <SocialLinks githubLink={personalDetails.githubLink} linkedInLink={personalDetails.linkedInLink} />
         </div>
       </div>
     </div>
@@ -116,15 +87,7 @@ const { education, interests, personalDetails, resume, skills } = profileData;
         id="about"
         class="flex flex-col space-y-4 lg:space-y-5 scroll-mt-28"
       >
-        <div
-          class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
-        >
-          <h2
-            class="section-label text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only"
-          >
-            About
-          </h2>
-        </div>
+        <SectionHeader title="About" />
 
         <p class="about-paragraph text-slate-300">
           Over the last six years, I have engineered software for everything from <ProfileBriefLink
@@ -149,15 +112,7 @@ const { education, interests, personalDetails, resume, skills } = profileData;
       </section>
 
       <section id="experience" class="scroll-mt-28">
-        <div
-          class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
-        >
-          <h2
-            class="section-label text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only"
-          >
-            Experience
-          </h2>
-        </div>
+        <SectionHeader title="Experience" />
 
         <ul class="flex flex-col gap-y-5 lg:gap-y-10 group/cards -m-5 pointer-events-none">
           {
