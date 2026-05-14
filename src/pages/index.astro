@@ -3,9 +3,11 @@ import Layout from "@layouts/Layout.astro";
 
 import Card from "@components/Card.astro";
 import ProfileBriefLink from "@components/ProfileBriefLink.astro";
+import ResumeModal from "@components/ResumeModal.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import SocialLinks from "@components/SocialLinks.astro";
 import StyledLink from "@components/StyledLink.astro";
 import { profileData } from "@utils/profileData";
-import { Icon } from "astro-icon/components";
 
 const { education, interests, personalDetails, resume, skills } = profileData;
 ---
@@ -75,37 +77,7 @@ const { education, interests, personalDetails, resume, skills } = profileData;
         </div>
 
         <div id="intro-social">
-          <ul class="flex flex-row space-x-3">
-            <li>
-              <a
-                href={personalDetails.githubLink}
-                target="_blank"
-                rel="noreferrer"
-                class="group flex items-center justify-center p-3 rounded-xl bg-slate-400/10 border border-slate-400/20 backdrop-blur-sm hover:bg-green-400/10 hover:border-green-400/30 transition-all duration-300"
-              >
-                <Icon
-                  name="fontisto:github"
-                  class="text-xl text-slate-400 group-hover:text-green-400 transition-colors duration-300"
-                />
-                <p class="sr-only">GitHub</p>
-              </a>
-            </li>
-
-            <li>
-              <a
-                href={personalDetails.linkedInLink}
-                target="_blank"
-                rel="noreferrer"
-                class="group flex items-center justify-center p-3 rounded-xl bg-slate-400/10 border border-slate-400/20 backdrop-blur-sm hover:bg-green-400/10 hover:border-green-400/30 transition-all duration-300"
-              >
-                <Icon
-                  name="fontisto:linkedin"
-                  class="text-xl text-slate-400 group-hover:text-green-400 transition-colors duration-300"
-                />
-                <p class="sr-only">LinkedIn</p>
-              </a>
-            </li>
-          </ul>
+          <SocialLinks githubLink={personalDetails.githubLink} linkedInLink={personalDetails.linkedInLink} />
         </div>
       </div>
     </div>
@@ -115,34 +87,16 @@ const { education, interests, personalDetails, resume, skills } = profileData;
         id="about"
         class="flex flex-col space-y-4 lg:space-y-5 scroll-mt-28"
       >
-        <div
-          class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
-        >
-          <h2
-            class="section-label text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only"
-          >
-            About
-          </h2>
-        </div>
+        <SectionHeader title="About" />
 
         <p class="about-paragraph text-slate-300">
           Over the last six years, I have engineered software for everything from <ProfileBriefLink
             text={"international e-commerce platforms"}
             url={"https://nextbasket.com/"}
           /> to <ProfileBriefLink
-            text={"national tech agencies."}
+            text={"national tech agencies,"}
             url={"https://ncair.nitda.gov.ng/"}
-          />
-          Today, I am combining my extensive background in frontend architecture with a Master's in Cybersecurity to build applications 
-          that are as secure as they are scalable.
-        </p>
-        <p class="about-paragraph text-slate-300">
-          My expertise lies in building
-          <strong class="text-slate-200">scalable, user-centric web applications</strong>
-          using a modern stack, including
-          <ProfileBriefLink text={"React,"} url={"https://react.dev/"} />
-          <ProfileBriefLink text="Next.js," url="https://nextjs.org/" /> <ProfileBriefLink text="Node.js," url="https://nodejs.org/en" /> and
-          <ProfileBriefLink text="PostgreSQL." url="https://postgresql.org/" /> I've shipped everything from ML-powered diagnostic tools to international e-commerce platforms at scale, always owning the full stack from database schema to deployed UI.
+          /> working across <ProfileBriefLink text={"React,"} url={"https://react.dev/"} /> <ProfileBriefLink text="Next.js," url="https://nextjs.org/" /> <ProfileBriefLink text="Node.js," url="https://nodejs.org/en" /> and <ProfileBriefLink text="PostgreSQL" url="https://postgresql.org/" /> to ship everything from ML-powered diagnostic tools to full-scale e-commerce platforms. Today, I combine that engineering depth with cybersecurity research in Zero Trust microservice architecture to build systems that are as secure as they are scalable.
         </p>
         <p class="about-paragraph text-slate-300">
           Most recently, as a
@@ -152,25 +106,13 @@ const { education, interests, personalDetails, resume, skills } = profileData;
               url="https://nextbasket.com/"
               text="NEXT BASKET,"
             />
-          </strong> I collaborated with cross-functional, international teams to
-          deliver high-quality frontend solutions. My focus was on leveraging Next.js
-          to develop scalable, user-friendly e-commerce interfaces and resolving
-          complex performance bottlenecks to significantly improve website speed
-          and user experience.  I am always exploring the edges of modern web tech, which is why I chose to build this portfolio using
+          </strong> I led performance work on high-volume order pages handling 10,000+ records, architected a shared AI chatbot package across two platforms, and established frontend testing standards across the Next.js codebase. I am always exploring the edges of modern web tech, which is why I chose to build this portfolio using
           <ProfileBriefLink url="https://astro.build/" text="Astro." />
         </p>
       </section>
 
       <section id="experience" class="scroll-mt-28">
-        <div
-          class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
-        >
-          <h2
-            class="section-label text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only"
-          >
-            Experience
-          </h2>
-        </div>
+        <SectionHeader title="Experience" />
 
         <ul class="flex flex-col gap-y-5 lg:gap-y-10 group/cards -m-5 pointer-events-none">
           {
@@ -194,32 +136,7 @@ const { education, interests, personalDetails, resume, skills } = profileData;
           }
         </ul>
 
-        <a
-          class="w-fit text-slate-200 flex flex-row gap-x-2 items-center group mt-12 px-5 py-2.5 rounded-xl bg-slate-400/10 border border-slate-400/20 hover:bg-green-400/10 hover:border-green-400/30 transition-all duration-300"
-          href="/Resume - Salim Hussaini.pdf"
-          download
-        >
-          <div
-            class="relative group-hover:text-green-400 transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-green-400 after:transition-all after:duration-300 group-hover:after:w-full"
-          >
-            Download My Resume
-          </div>
-
-          <svg
-            class="group-hover:translate-x-2 transition-all group-hover:text-green-400"
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="24"
-            viewBox="0 0 16 9"
-            ><path
-              fill="currentColor"
-              d="M12.5 5h-9c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h9c.28 0 .5.22.5.5s-.22.5-.5.5Z"
-            ></path><path
-              fill="currentColor"
-              d="M10 8.5a.47.47 0 0 1-.35-.15c-.2-.2-.2-.51 0-.71l3.15-3.15l-3.15-3.15c-.2-.2-.2-.51 0-.71c.2-.2.51-.2.71 0l3.5 3.5c.2.2.2.51 0 .71l-3.5 3.5c-.1.1-.23.15-.35.15Z"
-            ></path></svg
-          >
-        </a>
+        <ResumeModal href="/Resume - Salim Hussaini.pdf" filename="Resume - Salim Hussaini.pdf" />
       </section>
 
       <footer class="max-w-md pb-16 text-sm text-slate-400 sm:pb-0">
@@ -235,6 +152,7 @@ const { education, interests, personalDetails, resume, skills } = profileData;
       </footer>
     </div>
   </main>
+
 </Layout>
 
 <script>
@@ -401,4 +319,5 @@ const { education, interests, personalDetails, resume, skills } = profileData;
       });
     },
   });
+
 </script>
