@@ -236,58 +236,45 @@ const { education, interests, personalDetails, resume, skills } = profileData;
     { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: "power2.out" }
   );
 
-  const aboutDiv = `.navlink[href="#about"] > div`;
-  const aboutP = `.navlink[href="#about"] > p`;
-  const expDiv = `.navlink[href="#experience"] > div`;
-  const expP = `.navlink[href="#experience"] > p`;
-  const contactDiv = `.navlink[href="#contact"] > div`;
-  const contactP = `.navlink[href="#contact"] > p`;
-
-  document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.href.includes("#")) {
-      let anchor = `#${window.location.href.split("#")[1]}`;
-
-      gsap.fromTo(
-        window,
-        { scrollTo: { y: 0 } },
-        { duration: 0.5, scrollTo: { y: anchor, offsetY: 50 } }
-      );
-
-      if (aboutDiv.includes(anchor)) {
-        gsap.to(aboutDiv, {
-          onStart: () => {
-            document.querySelector(aboutDiv)?.classList.replace("w-7", "w-14");
-            document.querySelector(aboutDiv)?.classList.replace("bg-slate-600", "bg-green-400");
-            document
-              .querySelector(aboutP)
-              ?.classList.replace("text-slate-400", "text-green-400");
-          },
-        });
-      }
-    } else {
-      gsap.to(aboutDiv, {
-        onStart: () => {
-          document.querySelector(aboutDiv)?.classList.replace("w-7", "w-14");
-          document.querySelector(aboutDiv)?.classList.replace("bg-slate-600", "bg-green-400");
-          document
-            .querySelector(aboutP)
-            ?.classList.replace("text-slate-400", "text-green-400");
-        },
-      });
-    }
-  });
+  const sections = ["about", "experience", "contact"];
 
   const navLinks = document.querySelectorAll<HTMLAnchorElement>(".navlink");
+
+  const setActive = (id: string) => {
+    navLinks.forEach((link) => {
+      const isActive = link.getAttribute("href") === `#${id}`;
+      link.classList.toggle("is-active", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "true");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  };
+
   navLinks.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      // e.preventDefault();
-      let anchor = `#${link.href.split("#")[1]}`;
+    link.addEventListener("click", () => {
+      const anchor = `#${link.href.split("#")[1]}`;
       history.pushState(null, "", anchor);
       gsap.to(window, {
         duration: 0.1,
         scrollTo: { y: anchor, offsetY: 50 },
       });
     });
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const hash = window.location.hash.slice(1);
+    if (hash && sections.includes(hash)) {
+      gsap.fromTo(
+        window,
+        { scrollTo: { y: 0 } },
+        { duration: 0.5, scrollTo: { y: `#${hash}`, offsetY: 50 } }
+      );
+      setActive(hash);
+    } else {
+      setActive("about");
+    }
   });
 
   gsap.utils.toArray<HTMLElement>(".about-paragraph").forEach((el) => {
@@ -359,89 +346,14 @@ const { education, interests, personalDetails, resume, skills } = profileData;
     );
   });
 
-  ScrollTrigger.create({
-    trigger: "#contact",
-    start: "top center",
-    onEnter: () => {
-      gsap.to(expDiv, {
-        onStart: () => {
-          document.querySelector(expDiv)?.classList.replace("w-14", "w-7");
-          document.querySelector(expDiv)?.classList.replace("bg-green-400", "bg-slate-600");
-          document.querySelector(expP)?.classList.replace("text-green-400", "text-slate-400");
-        },
-      });
-      gsap.to(contactDiv, {
-        onStart: () => {
-          document.querySelector(contactDiv)?.classList.replace("w-7", "w-14");
-          document.querySelector(contactDiv)?.classList.replace("bg-slate-600", "bg-green-400");
-          document.querySelector(contactP)?.classList.replace("text-slate-400", "text-green-400");
-        },
-      });
-    },
-    onLeaveBack: () => {
-      gsap.to(contactDiv, {
-        onStart: () => {
-          document.querySelector(contactDiv)?.classList.replace("w-14", "w-7");
-          document.querySelector(contactDiv)?.classList.replace("bg-green-400", "bg-slate-600");
-          document.querySelector(contactP)?.classList.replace("text-green-400", "text-slate-400");
-        },
-      });
-      gsap.to(expDiv, {
-        onStart: () => {
-          document.querySelector(expDiv)?.classList.replace("w-7", "w-14");
-          document.querySelector(expDiv)?.classList.replace("bg-slate-600", "bg-green-400");
-          document.querySelector(expP)?.classList.replace("text-slate-400", "text-green-400");
-        },
-      });
-    },
-  });
-
-  ScrollTrigger.create({
-    trigger: "#about",
-    start: "bottom center",
-    onLeave: () => {
-      // gsap.fromTo(`.navlink[href="#about"]`, { opacity: 1 }, { opacity: 0.5 });
-      gsap.to(aboutDiv, {
-        // duration: 0.5,
-        onStart: () => {
-          document.querySelector(aboutDiv)?.classList.replace("w-14", "w-7");
-          document.querySelector(aboutDiv)?.classList.replace("bg-green-400", "bg-slate-600");
-          document
-            .querySelector(aboutP)
-            ?.classList.replace("text-green-400", "text-slate-400");
-        },
-      });
-      gsap.to(expDiv, {
-        onStart: () => {
-          document.querySelector(expDiv)?.classList.replace("w-7", "w-14");
-          document.querySelector(expDiv)?.classList.replace("bg-slate-600", "bg-green-400");
-          document
-            .querySelector(expP)
-            ?.classList.replace("text-slate-400", "text-green-400");
-        },
-      });
-    },
-    onEnterBack: () => {
-      gsap.to(expDiv, {
-        onStart: () => {
-          document.querySelector(expDiv)?.classList.replace("w-14", "w-7");
-          document.querySelector(expDiv)?.classList.replace("bg-green-400", "bg-slate-600");
-          document
-            .querySelector(expP)
-            ?.classList.replace("text-green-400", "text-slate-400");
-        },
-      });
-
-      gsap.to(aboutDiv, {
-        onStart: () => {
-          document.querySelector(aboutDiv)?.classList.replace("w-7", "w-14");
-          document.querySelector(aboutDiv)?.classList.replace("bg-slate-600", "bg-green-400");
-          document
-            .querySelector(aboutP)
-            ?.classList.replace("text-slate-400", "text-green-400");
-        },
-      });
-    },
+  sections.forEach((id) => {
+    ScrollTrigger.create({
+      trigger: `#${id}`,
+      start: "top center",
+      end: "bottom center",
+      onEnter: () => setActive(id),
+      onEnterBack: () => setActive(id),
+    });
   });
 
   }

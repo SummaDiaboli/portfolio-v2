@@ -47,6 +47,16 @@
   50% { background-position: 100% 50%; }
 }
 
+/* Active nav state (driven by ScrollTrigger toggling .is-active) */
+.navlink.is-active > div {
+  width: 3.5rem;
+  background-color: #4ade80;
+}
+
+.navlink.is-active > p {
+  color: #4ade80;
+}
+
 @media print {
   /* Force all content visible regardless of GSAP state */
   * {

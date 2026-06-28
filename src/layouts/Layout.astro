@@ -1,11 +1,24 @@
 ---
 import "@styles/global.css";
+import { profileData } from "@utils/profileData";
 
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+
+const { personalDetails } = profileData;
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: personalDetails.name,
+  jobTitle: "Fullstack Software Engineer",
+  url: "https://salimhussaini.dev",
+  email: personalDetails.email,
+  sameAs: [personalDetails.githubLink, personalDetails.linkedInLink],
+};
 ---
 
 <!doctype html>
@@ -39,6 +52,10 @@ const { title } = Astro.props;
     <meta name="twitter:image" content="/og.png" />
     <meta name="generator" content={Astro.generator} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(personSchema)}
+    />
     <title>{title}</title>
   </head>
   
@@ -50,6 +67,7 @@ const { title } = Astro.props;
       Skip to main content
     </a>
     <div id="spotlight" class="pointer-events-none fixed inset-0 z-30" style="transition: background 0.15s ease-out;"></div>
+    <div id="top-sentinel" aria-hidden="true" class="pointer-events-none absolute top-0 left-0 h-[400px] w-px"></div>
     <slot />
     <button
       id="scroll-top"
@@ -67,17 +85,19 @@ const { title } = Astro.props;
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const scrollTopBtn = document.getElementById("scroll-top");
+  const topSentinel = document.getElementById("top-sentinel");
 
-  window.addEventListener("scroll", () => {
-    if (!scrollTopBtn) return;
-    if (window.scrollY > 400) {
-      scrollTopBtn.style.opacity = "1";
-      scrollTopBtn.style.pointerEvents = "auto";
-    } else {
-      scrollTopBtn.style.opacity = "0";
-      scrollTopBtn.style.pointerEvents = "none";
-    }
-  });
+  if (scrollTopBtn && topSentinel) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const show = !entry.isIntersecting;
+        scrollTopBtn.style.opacity = show ? "1" : "0";
+        scrollTopBtn.style.pointerEvents = show ? "auto" : "none";
+      },
+      { threshold: 0 }
+    );
+    observer.observe(topSentinel);
+  }
 
   scrollTopBtn?.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "instant" : "smooth" });
@@ -90,23 +110,32 @@ const { title } = Astro.props;
     let currentY = 0;
     let targetX = 0;
     let targetY = 0;
-
-    document.addEventListener("mousemove", (e) => {
-      targetX = e.clientX;
-      targetY = e.clientY;
-    });
+    let running = false;
 
     function animateSpotlight() {
       currentX += (targetX - currentX) * 0.08;
       currentY += (targetY - currentY) * 0.08;
 
       if (spotlight) {
-        spotlight.style.background = `radial-gradient(400px at ${currentX}px ${currentY}px, rgba(29, 78, 216, 0.15), transparent 80%)`;
+        spotlight.style.background = `radial-gradient(400px at ${currentX}px ${currentY}px, rgba(74, 222, 128, 0.12), transparent 80%)`;
+      }
+
+      // Stop once the glow has settled on the pointer; mousemove restarts it.
+      if (Math.abs(targetX - currentX) < 0.5 && Math.abs(targetY - currentY) < 0.5) {
+        running = false;
+        return;
       }
 
       requestAnimationFrame(animateSpotlight);
     }
 
-    animateSpotlight();
+    document.addEventListener("mousemove", (e) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+      if (!running) {
+        running = true;
+        requestAnimationFrame(animateSpotlight);
+      }
+    });
   }
 </script>
