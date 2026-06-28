@@ -45,8 +45,8 @@ const personalDetails: PersonalDetailsProps = {
 
 const skills: SkillsProps = {
 	programmingLanguages: [
-		"Typescript",
-		"Javascript",
+		"TypeScript",
+		"JavaScript",
 		"Node.js",
 		"Dart",
 		"Python",
@@ -60,7 +60,7 @@ const skills: SkillsProps = {
 		"TailwindCSS",
 		"Flutter",
 		"Express.js",
-		"Nestjs",
+		"NestJS",
 		"Jest",
 	],
 	tools: [
@@ -93,7 +93,7 @@ const resume: ResumeProps[] = [
 		},
 		description:
 			"Collaborated with international, cross-functional teams to deliver high-quality e-commerce solutions. My role focused on leveraging Next.js to optimize performance, resolve critical client-facing issues, and build scalable, user-friendly interfaces.",
-		languages: ["Typescript", "Javascript", "React", "Next.js", "Material UI"],
+		languages: ["TypeScript", "JavaScript", "React", "Next.js", "Material UI"],
 		bulletPoints: [
 			"Improved render performance on high-volume order pages handling 10,000+ unpaginated records by implementing ag-grid with useMemo caching and session storage, reducing load times significantly for end users.",
 			"Established frontend testing standards across the Next.js platform introducing unit and integration tests that improved code maintainability and reduced regression bugs.",
@@ -110,9 +110,9 @@ const resume: ResumeProps[] = [
 		duration: { from: new Date("2023-8"), to: new Date("2024-5") },
 		languages: [
 			"Flutter",
-			"Typescript",
+			"TypeScript",
 			"React",
-			"Nodejs",
+			"Node.js",
 			"Python",
 			"Tensorflow",
 		],
@@ -133,7 +133,7 @@ const resume: ResumeProps[] = [
 			"React",
 			"Astro",
 			"Svelte",
-			"Typescript",
+			"TypeScript",
 			"React Native",
 			"Express.js",
 			"PostgreSQL",
@@ -151,7 +151,7 @@ const resume: ResumeProps[] = [
 			"Developed and deployed a user-friendly React application for a smart home fuel management system, integrating with live IoT device data via a custom API.",
 		link: "https://314ltd.com/",
 		duration: { from: new Date("2022-7"), to: new Date("2022-9") },
-		languages: ["Typscript", "Firebase", "React", "TailwindCSS", "Node.js"],
+		languages: ["TypeScript", "Firebase", "React", "TailwindCSS", "Node.js"],
 		bulletPoints: [
 			"Built a robust and user-friendly smart home management application using React and TailwindCSS.",
 			"Integrated the application with Firebase for backend services, managing real-time data and user authentication.",
@@ -167,7 +167,7 @@ const resume: ResumeProps[] = [
 			"Developed a public-facing platform to enhance political transparency in Nigeria, featuring D3.js data visualizations and legislative tracking via a Hasura GraphQL backend.",
 		duration: { from: new Date("2021-8"), to: new Date("2021-9") },
 		languages: [
-			"Typscript",
+			"TypeScript",
 			"Firebase",
 			"Hasura",
 			"GraphQL",
@@ -189,8 +189,8 @@ const resume: ResumeProps[] = [
 			"Developed a social media web platform aimed to bring people together using podcasts and music with a team of fellow students.",
 		duration: { from: new Date("2019-9"), to: new Date("2019-12") },
 		languages: [
-			"Javascript",
-			"Typscript",
+			"JavaScript",
+			"TypeScript",
 			"Firebase",
 			"Next.js",
 			"Preact",
