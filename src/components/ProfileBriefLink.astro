@@ -1,12 +1,12 @@
 ---
+import StyledLink from "./StyledLink.astro";
+
+interface Props {
+  url: string;
+  text: string;
+}
+
 const { url, text } = Astro.props;
 ---
 
-<a
-  href={url}
-  target="_blank"
-  rel="no-referrer"
-  class="text-slate-200 font-bold"
->
-  {text}
-</a>
+<StyledLink url={url} class="font-bold">{text}</StyledLink>

@@ -1,6 +1,5 @@
 ---
 import "@styles/global.css";
-import "@fontsource/inter";
 
 interface Props {
   title: string;
@@ -13,22 +12,101 @@ const { title } = Astro.props;
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="og:image" content="/og.svg" />
-    <meta name="og:twitter" content="/og.svg" />
-    <meta name="og:description" content="Portfolio" />
-    <meta name="description" content="Portfolio" />
-    <meta name="og:title" content="Salim Hussaini" />
-    <meta name="viewport" content="width=device-width" />
     <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Salim Hussaini is a Fullstack Engineer specializing in high-performance web applications, with a track record of shipping production systems across e-commerce, civic tech, and AI/ML domains."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://salimhussaini.dev" />
+    <meta property="og:title" content="Salim Hussaini | Fullstack Software Engineer" />
+    <meta
+      property="og:description"
+      content="Salim Hussaini is a Fullstack Engineer specializing in high-performance web applications, with a track record of shipping production systems across e-commerce, civic tech, and AI/ML domains."
+    />
+    <meta property="og:image" content="/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Salim Hussaini | Fullstack Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Salim Hussaini is a Fullstack Engineer specializing in high-performance web applications, with a track record of shipping production systems across e-commerce, civic tech, and AI/ML domains."
+    />
+    <meta name="twitter:image" content="/og.png" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{title}</title>
   </head>
-
+  
   <body class="bg-portfolio text-slate-400 font-sans">
+    <a
+      href="#about"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:rounded focus:bg-slate-800 focus:text-slate-200 focus:text-sm focus:font-medium focus:ring-2 focus:ring-green-400"
+    >
+      Skip to main content
+    </a>
+    <div id="spotlight" class="pointer-events-none fixed inset-0 z-30" style="transition: background 0.15s ease-out;"></div>
     <slot />
+    <button
+      id="scroll-top"
+      aria-label="Scroll to top"
+      class="fixed bottom-8 right-8 z-40 p-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-400 hover:bg-green-400/10 hover:border-green-400/30 hover:text-green-400 transition-all duration-300 opacity-0 pointer-events-none shadow-lg cursor-pointer"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 15l-6-6-6 6"/>
+      </svg>
+    </button>
   </body>
 </html>
+
+<script>
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const scrollTopBtn = document.getElementById("scroll-top");
+
+  window.addEventListener("scroll", () => {
+    if (!scrollTopBtn) return;
+    if (window.scrollY > 400) {
+      scrollTopBtn.style.opacity = "1";
+      scrollTopBtn.style.pointerEvents = "auto";
+    } else {
+      scrollTopBtn.style.opacity = "0";
+      scrollTopBtn.style.pointerEvents = "none";
+    }
+  });
+
+  scrollTopBtn?.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "instant" : "smooth" });
+  });
+
+  if (!prefersReducedMotion) {
+    const spotlight = document.getElementById("spotlight");
+
+    let currentX = 0;
+    let currentY = 0;
+    let targetX = 0;
+    let targetY = 0;
+
+    document.addEventListener("mousemove", (e) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+    });
+
+    function animateSpotlight() {
+      currentX += (targetX - currentX) * 0.08;
+      currentY += (targetY - currentY) * 0.08;
+
+      if (spotlight) {
+        spotlight.style.background = `radial-gradient(400px at ${currentX}px ${currentY}px, rgba(29, 78, 216, 0.15), transparent 80%)`;
+      }
+
+      requestAnimationFrame(animateSpotlight);
+    }
+
+    animateSpotlight();
+  }
+</script>
