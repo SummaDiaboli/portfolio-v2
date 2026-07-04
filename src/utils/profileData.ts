@@ -127,7 +127,7 @@ const resume: ResumeProps[] = [
 		role: "Fullstack Web Developer",
 		description:
 			"Delivered 20+ full-stack products across finance, healthcare, and NGO sectors with an 80% client satisfaction rate, taking sole ownership of architecture, backend APIs, mobile builds, and deployment for each client.",
-		duration: { from: new Date("2022-9"), to: new Date("2023-7") },
+		duration: { from: new Date("2022-9"), to: new Date("2025-7") },
 		languages: [
 			"Next.js",
 			"React",
